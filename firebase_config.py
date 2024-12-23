@@ -2,8 +2,12 @@ import firebase_admin
 from firebase_admin import credentials, db
 import os
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
 
 environment = os.getenv('DEV_ENV')
+print(f"dev env: {environment}")
 
 # Initialize Firebase App
 def init_firebase():
@@ -12,8 +16,6 @@ def init_firebase():
         if environment == 'False':
             # Use Streamlit secrets for production
             firebase_credentials = st.secrets["firebase"]
-            st.write("Secrets fetched in production:")
-            st.write(st.secrets["firebase"])
             # Initialize Firebase with the secrets from .streamlit/secrets.toml
             cred = credentials.Certificate({
                 "type": "service_account",
