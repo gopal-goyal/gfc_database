@@ -27,7 +27,7 @@ def init_firebase():
                 "universe_domain": firebase_credentials["universe_domain"]
             })
         else:
-            cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-heukc-bb8302a3de.json")
+            cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-sb50l-9dfb605f4f.json")
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://goyal-fertilizer-app-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })
