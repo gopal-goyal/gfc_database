@@ -1,10 +1,33 @@
 import firebase_admin
 from firebase_admin import credentials, db
+import os
+import streamlit as st
+
+environment = os.getenv('DEV_ENV')
 
 # Initialize Firebase App
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-heukc-7c7dce3bb7.json")
+        # Initialize Firebase
+        if environment == 'False':
+            # Use Streamlit secrets for production
+            firebase_credentials = st.secrets["firebase"]
+            # Initialize Firebase with the secrets from .streamlit/secrets.toml
+            cred = credentials.Certificate({
+                "type": "service_account",
+                "project_id": firebase_credentials["project_id"],
+                "private_key_id": firebase_credentials["private_key_id"],
+                "private_key": firebase_credentials["private_key"],
+                "client_email": firebase_credentials["client_email"],
+                "client_id": firebase_credentials["client_id"],
+                "auth_uri": firebase_credentials["auth_uri"],
+                "token_uri": firebase_credentials["token_uri"],
+                "auth_provider_x509_cert_url": firebase_credentials["auth_provider_x509_cert_url"],
+                "client_x509_cert_url": firebase_credentials["client_x509_cert_url"],
+                "universe_domain": firebase_credentials["universe_domain"]
+            })
+        else:
+            cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-heukc-bb8302a3de.json")
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://goyal-fertilizer-app-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })
