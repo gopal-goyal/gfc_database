@@ -4,7 +4,7 @@ from firebase_admin import credentials, db
 # Initialize Firebase App
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-heukc-5012740987.json")
+        cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-heukc-7c7dce3bb7.json")
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://goyal-fertilizer-app-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })
