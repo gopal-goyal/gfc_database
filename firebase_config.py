@@ -12,6 +12,8 @@ def init_firebase():
         if environment == 'False':
             # Use Streamlit secrets for production
             firebase_credentials = st.secrets["firebase"]
+            st.write("Secrets fetched in production:")
+            st.write(st.secrets["firebase"])
             # Initialize Firebase with the secrets from .streamlit/secrets.toml
             cred = credentials.Certificate({
                 "type": "service_account",
