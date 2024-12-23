@@ -6,6 +6,9 @@ from components.search import search_page
 # Initialize App
 init_firebase()
 
+# Predefined password
+PASSWORD = "iFVhE6Mx4eq2S2F7"  # Change this to your desired password
+
 def main():
     # App Configuration
     st.set_page_config(page_title="GFC Database 👨🏾‍🌾", layout="centered")
@@ -20,14 +23,19 @@ def main():
         unsafe_allow_html=True
     )
 
-    # Sidebar Navigation
-    menu = st.sidebar.selectbox("Menu", ["Search Users", "Add New User"])
+    # Password prompt
+    password = st.text_input("Enter Password", type="password")
 
-    # Route to pages
-    if menu == "Search Users":
-        search_page()
-    elif menu == "Add New User":
-        add_user_page()
+    # Check if password is correct
+    if password == PASSWORD:
+        # Sidebar Navigation
+        menu = st.sidebar.selectbox("Menu", ["Search Users", "Add New User"])
+
+        # Route to pages
+        if menu == "Search Users":
+            search_page()
+        elif menu == "Add New User":
+            add_user_page()
 
 # Entry Point
 if __name__ == "__main__":
