@@ -32,18 +32,17 @@ def main():
         unsafe_allow_html=True
     )
 
-    # Password prompt
-    password = st.text_input("Enter Password", type="password")
+    # Sidebar Navigation
+    menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users"])
 
-    # Check if password is correct
-    if password == PASSWORD:
-        # Sidebar Navigation
-        menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users"])
-
-        # Route to pages
-        if menu == "Add New User":
-            add_user_page()
-        elif menu == "Search Users":
+    # Route to pages
+    if menu == "Add New User":
+        add_user_page()
+    elif menu == "Search Users":
+        # Password prompt
+        password = st.text_input("Enter Password", type="password")
+        # Check if password is correct
+        if password == PASSWORD:
             search_page()
         
 

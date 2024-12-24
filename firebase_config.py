@@ -4,14 +4,14 @@ import os
 import streamlit as st
 from config import DEV_ENV
 
-cred_path = os.getenv('FIREBASE_CRED_PATH')
-environment = DEV_ENV
+if DEV_ENV:
+    cred_path = os.getenv('FIREBASE_CRED_PATH')
 
 # Initialize Firebase App
 def init_firebase():
     if not firebase_admin._apps:
         # Initialize Firebase
-        if environment == 'False':
+        if DEV_ENV==False:
             # Use Streamlit secrets for production
             firebase_credentials = st.secrets["firebase"]
             # Initialize Firebase with the secrets from .streamlit/secrets.toml
