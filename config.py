@@ -1,2 +1,2 @@
 # Set the Environment variable
-DEV_ENV='False'
+DEV_ENV=False
