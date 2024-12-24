@@ -29,27 +29,37 @@ def add_user_page():
         aadhar_number = st.text_input("Aadhar Number (Unique ID)", placeholder="Enter 12-digit Aadhar number")
         
         # Optional fields
-        land = st.text_input("Land in Acquisition (Bigha/Acre)", placeholder="Enter the size of the land")
-        email = st.text_input("Email", placeholder="Enter the user's email address")
-        major_crops = st.multiselect(
-            "Major Crops", 
-            options=["Wheat", "Rice", "Mustard", "Barley", "Maize", "Sugarcane", "Other"],
-            help="Select the crops grown by the user. You can select multiple."
-        )
-        demand = st.text_input("Demand", placeholder="Enter the user's demand for products or services")
-        payment_mode = st.selectbox(
-            "Preferred Payment Mode", 
-            ["Cash", "Online", "Other"], 
-            help="Select the user's preferred payment method"
-        )
-        challenges = st.text_area(
-            "Common Challenges", 
-            placeholder="Describe any challenges the user faces"
-        )
-        water_source = st.text_area(
-            "Water Source and Availability", 
-            placeholder="Describe the water sources available to the user"
-        )
+        a1, a2 = st.columns([1,1])
+        b1, b2, b3 = st.columns([1,1,1])
+        c1, c2 = st.columns([1,1])
+        with a1:
+            land = st.text_input("Land in Acquisition (Bigha/Acre)", placeholder="Enter the size of the land")
+        with a2:
+            email = st.text_input("Email", placeholder="Enter the user's email address")
+        with b1:
+            demand = st.text_input("Demand", placeholder="Enter the user's demand for products or services")
+        with b2:
+            payment_mode = st.selectbox(
+                "Preferred Payment Mode", 
+                ["Cash", "Online", "Other"], 
+                help="Select the user's preferred payment method"
+            )
+        with b3:
+            major_crops = st.multiselect(
+                "Major Crops", 
+                options=["Wheat", "Rice", "Mustard", "Barley", "Maize", "Sugarcane", "Other"],
+                help="Select the crops grown by the user. You can select multiple."
+            )
+        with c1:
+            challenges = st.text_input(
+                "Common Challenges", 
+                placeholder="Describe any challenges the user faces"
+            )
+        with c2:
+            water_source = st.text_input(
+                "Water Source and Availability", 
+                placeholder="Describe the water sources available to the user"
+            )
 
         # Submit button
         submit = st.form_submit_button("Submit")

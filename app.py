@@ -2,6 +2,7 @@ import streamlit as st
 from firebase_config import init_firebase
 from components.add_user import add_user_page
 from components.search import search_page
+from components.reel_downloader import reel_download
 from config import DEV_ENV
 from dotenv import load_dotenv
 import os
@@ -9,7 +10,7 @@ import os
 # Load Environment
 load_dotenv()
 
-# Initialize App
+# Initialize Firebase
 init_firebase()
 
 if DEV_ENV:
@@ -33,7 +34,7 @@ def main():
     )
 
     # Sidebar Navigation
-    menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users"])
+    menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users", "Reel Download"])
 
     # Route to pages
     if menu == "Add New User":
@@ -44,6 +45,8 @@ def main():
         # Check if password is correct
         if password == PASSWORD:
             search_page()
+    elif menu == "Reel Download":
+        reel_download()
         
 
 # Entry Point
