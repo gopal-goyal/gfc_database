@@ -2,12 +2,10 @@ import firebase_admin
 from firebase_admin import credentials, db
 import os
 import streamlit as st
-from dotenv import load_dotenv
+from config import DEV_ENV
 
-load_dotenv()
-
-environment = os.getenv('DEV_ENV')
-print(f"dev env: {environment}")
+cred_path = os.getenv('FIREBASE_CRED_PATH')
+environment = DEV_ENV
 
 # Initialize Firebase App
 def init_firebase():
@@ -31,7 +29,7 @@ def init_firebase():
                 "universe_domain": firebase_credentials["universe_domain"]
             })
         else:
-            cred = credentials.Certificate("goyal-fertilizer-app-firebase-adminsdk-sb50l-9dfb605f4f.json")
+            cred = credentials.Certificate(cred_path)
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://goyal-fertilizer-app-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })

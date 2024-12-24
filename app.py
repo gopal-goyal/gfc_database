@@ -2,12 +2,21 @@ import streamlit as st
 from firebase_config import init_firebase
 from components.add_user import add_user_page
 from components.search import search_page
+from config import DEV_ENV
+from dotenv import load_dotenv
+import os
+
+# Load Environment
+load_dotenv()
 
 # Initialize App
 init_firebase()
 
-# Predefined password
-PASSWORD = "iFVhE6Mx4eq2S2F7"  # Change this to your desired password
+if DEV_ENV:
+    PASSWORD = os.getenv('PASSWORD')
+else:
+    auth_credentials = st.secrets["auth"]
+    PASSWORD = auth_credentials["password"]
 
 def main():
     # App Configuration
