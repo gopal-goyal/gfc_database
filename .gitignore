@@ -2,3 +2,4 @@ __pycache__/
 components/__pycache__/
 venv
 goyal-fertilizer-app-firebase-adminsdk-sb50l-9dfb605f4f.json
+.streamlit
