@@ -38,13 +38,14 @@ def main():
     # Check if password is correct
     if password == PASSWORD:
         # Sidebar Navigation
-        menu = st.sidebar.selectbox("Menu", ["Search Users", "Add New User"])
+        menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users"])
 
         # Route to pages
-        if menu == "Search Users":
-            search_page()
-        elif menu == "Add New User":
+        if menu == "Add New User":
             add_user_page()
+        elif menu == "Search Users":
+            search_page()
+        
 
 # Entry Point
 if __name__ == "__main__":
