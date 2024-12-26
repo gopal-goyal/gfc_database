@@ -19,7 +19,14 @@ def validate_name(name):
     return bool(re.match(r"^[A-Za-z\s]+$", name))
 
 def add_user_page():
-    st.title("Add New User")
+    st.markdown(
+        """
+        <h3 style='text-align: center'>
+        Add New User
+        </h3>
+        """,
+        unsafe_allow_html=True
+    )
 
     with st.form(key="add_user_form"):
         # Mandatory fields
