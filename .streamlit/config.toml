@@ -1,0 +1,7 @@
+[theme]
+base = "light" 
+primaryColor = "#3498db"  # A vibrant blue, suggesting growth and water
+backgroundColor = "#f0f0f0"  # A light gray, resembling soil
+secondaryBackgroundColor = "#e0e0e0"  # A slightly darker gray for contrast
+textColor = "#333333"  # A dark gray for readability
+font = "sans serif"

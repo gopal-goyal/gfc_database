@@ -6,6 +6,7 @@ from components.reel_downloader import reel_download
 from config import DEV_ENV
 from dotenv import load_dotenv
 import os
+from streamlit_option_menu import option_menu
 
 # Load Environment
 load_dotenv()
@@ -33,8 +34,12 @@ def main():
         unsafe_allow_html=True
     )
 
-    # Sidebar Navigation
-    menu = st.sidebar.selectbox("Menu", ["Add New User", "Search Users", "Reel Download"])
+    menu = option_menu(
+        None,
+        options=["Add New User", "Search Users", "Reel Download"],
+        icons=["person-fill-add", "search", "download"],
+        orientation="horizontal"
+    )
 
     # Route to pages
     if menu == "Add New User":
