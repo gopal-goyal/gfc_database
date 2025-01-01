@@ -3,6 +3,7 @@ from firebase_config import init_firebase
 from components.add_user import add_user_page
 from components.search import search_page
 from components.reel_downloader import reel_download
+from components.builty import builty
 from config import DEV_ENV
 from dotenv import load_dotenv
 import os
@@ -36,8 +37,8 @@ def main():
 
     menu = option_menu(
         None,
-        options=["Add New User", "Search Users", "Reel Download"],
-        icons=["person-fill-add", "search", "download"],
+        options=["Add New User", "Search Users", "Builty"],
+        icons=["person-fill-add", "search", "receipt"],
         orientation="horizontal"
     )
 
@@ -50,8 +51,10 @@ def main():
         # Check if password is correct
         if password == PASSWORD:
             search_page()
-    elif menu == "Reel Download":
-        reel_download()
+    # elif menu == "Reel Download":
+    #     reel_download()
+    elif menu == "Builty":
+        builty()
         
 
 # Entry Point

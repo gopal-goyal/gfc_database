@@ -9,7 +9,6 @@ load_dotenv()
 
 if DEV_ENV:
     cred_path = os.getenv('FIREBASE_CRED_PATH')
-    print(f"cred_path: {cred_path}")
 
 # Initialize Firebase App
 def init_firebase():
