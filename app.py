@@ -3,7 +3,6 @@ from firebase_config import init_firebase
 from components.add_user import add_user_page
 from components.search import search_page
 from components.reel_downloader import reel_download
-from components.builty import builty
 from config import DEV_ENV
 from dotenv import load_dotenv
 import os
