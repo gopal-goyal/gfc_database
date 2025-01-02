@@ -37,8 +37,8 @@ def main():
 
     menu = option_menu(
         None,
-        options=["Add New User", "Search Users", "Builty"],
-        icons=["person-fill-add", "search", "receipt"],
+        options=["Add New User", "Search Users", "Reel Download"],
+        icons=["person-fill-add", "search", "download"],
         orientation="horizontal"
     )
 
@@ -51,11 +51,8 @@ def main():
         # Check if password is correct
         if password == PASSWORD:
             search_page()
-    # elif menu == "Reel Download":
-    #     reel_download()
-    elif menu == "Builty":
-        builty()
-        
+    elif menu == "Reel Download":
+        reel_download()
 
 # Entry Point
 if __name__ == "__main__":
